@@ -17,6 +17,10 @@ function computerPlay(){
 function playRound(playerSelection, computerSelection){
     let player = playerSelection.toLowerCase()
     
+    if(player == computerSelection){
+        tie++
+        return "Its a tie!"
+    }
     if(player == "scissors" && computerSelection == "paper"){
         win++
         return "You win! Scissors beats Paper"
@@ -42,6 +46,7 @@ function playRound(playerSelection, computerSelection){
 
 let win = 0;
 let loss = 0;
+let tie = 0;
 
 function game(){
     for (let i = 0; i < 5; i++){
@@ -50,7 +55,7 @@ function game(){
 
         console.log(playRound(playerSelection, computerSelection));
     }
-    console.log("You won " + win + " times and lost " + loss + " times.");
+    console.log("You won " + win + " times and lost " + loss + " times. There were " + tie + " draws.");
 }
 
 game();
