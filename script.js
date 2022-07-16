@@ -44,20 +44,19 @@ function playRound(playerSelection, computerSelection){
 
 }
 
+let tie = 0;
 let win = 0;
 let loss = 0;
-let tie = 0;
 
-//const btns = document.querySelectorAll('button');
-/*btns.forEach((button) => {
-    button.addEventListener('click', () =>{
-        alert(button.id);
-    })
-})
-*/
 const btn = document.querySelectorAll('button');
+const output = document.querySelector(".output")
+
 btn.forEach((button) => {
     button.addEventListener('click', () => {
-  console.log(playRound(button.id, computerPlay()))
+        const br = document.createElement("br");
+        const text = document.createTextNode(playRound(button.id, computerPlay()))
+        output.appendChild(br);
+        output.appendChild(text);
+        
 });
 })
