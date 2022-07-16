@@ -1,0 +1,15 @@
+.score{
+    display: flex;
+    width: 10%;
+    justify-content: space-between;
+}
+.score_header{
+    
+}
+
+.p1{
+    color: red;
+}
+.p2{
+    color: blue;
+}
