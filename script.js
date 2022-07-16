@@ -27,25 +27,25 @@ function playRound(playerSelection, computerSelection){
     if(player == "scissors" && computerSelection == "paper"){
         win++
         pScore.innerHTML = "You: " + win
-        return "You win! Scissors beats Paper"
+        return "You win the round! Scissors beats Paper"
         
     }
     if(player == "paper" && computerSelection == "rock"){
         win++
         pScore.innerHTML = "You: " + win
-        return "You win! Paper beats Rock"
+        return "You win the round! Paper beats Rock"
         
     }
     if(player == "rock" && computerSelection == "scissors"){
         win++;
         pScore.innerHTML = "You: " + win
-        return "You win! Rock beats Scissors"
+        return "You win the round! Rock beats Scissors"
         
     }
     else{
         loss++;
         cpuScore.innerHTML = "CPU: " + loss
-        return "You lost. " + computerSelection + " beats " + playerSelection;
+        return "You lost the round. " + computerSelection + " beats " + playerSelection;
         
     }
 
@@ -55,14 +55,25 @@ let tie = 0;
 let win = 0;
 let loss = 0;
 
+
 const btn = document.querySelectorAll('button');
 const output = document.querySelector(".output")
+const score = document.querySelector(".result")
 
 btn.forEach((button) => {
     button.addEventListener('click', () => {
         const br = document.createElement("br");
         const text = document.createTextNode(playRound(button.id, computerPlay()))
         output.appendChild(text);
+
+        if(win == 5 || loss == 5){
+            const sum = tie+win+loss
+            if(win == 5){score.innerHTML = "You win the Game after " + sum + " rounds!"}
+            else{score.innerHTML = "You lost the Game after " + sum + " rounds!"}
+            btn.forEach((button) =>{
+                button.remove()
+            })
+        }
         output.appendChild(br);
         
 });
