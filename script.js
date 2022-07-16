@@ -48,14 +48,16 @@ let win = 0;
 let loss = 0;
 let tie = 0;
 
-function game(){
-    for (let i = 0; i < 5; i++){
-        let computerSelection = computerPlay();
-        let playerSelection = prompt("Rock, Paper, or Scissors?");
-
-        console.log(playRound(playerSelection, computerSelection));
-    }
-    console.log("You won " + win + " times and lost " + loss + " times. There were " + tie + " draws.");
-}
-
-game();
+//const btns = document.querySelectorAll('button');
+/*btns.forEach((button) => {
+    button.addEventListener('click', () =>{
+        alert(button.id);
+    })
+})
+*/
+const btn = document.querySelectorAll('button');
+btn.forEach((button) => {
+    button.addEventListener('click', () => {
+  console.log(playRound(button.id, computerPlay()))
+});
+})
